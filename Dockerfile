@@ -1,0 +1,1 @@
+FROM shaarli/shaarli
