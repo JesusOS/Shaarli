@@ -1,0 +1,21 @@
+version: '3'
+
+networks:
+  proxy:
+    external: true
+
+volumes:
+  traefik-acme:
+  shaarli-cache:
+  shaarli-data:
+
+services:
+  shaarli:
+    image: shaarli/shaarli
+    volumes:
+      - shaarli-cache:/var/www/shaarli/cache
+      - shaarli-data:/var/www/shaarli/data
+    ports:
+      - '9090:80'
+    networks:
+      proxy:
